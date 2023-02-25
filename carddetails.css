@@ -1,0 +1,258 @@
+:root {
+    --Lineargradient: hsl(249, 99%, 64%) to hsl(278, 94%, 30%);
+    --Red: hsl(0, 100%, 66%);
+
+    --White: hsl(0, 0%, 100%);
+    --Lighgrayishviolet: hsl(270, 3%, 87%);
+    --Dargrayisviolet: hsl(279, 6%, 55%);
+    --Verdarviolet: hsl(278, 68%, 11%);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+}
+
+.container {
+    max-width: 1745px;
+    display: flex;
+    height: 100%;
+}
+
+/* card css begin */
+
+.container .container-left {
+    flex-basis: 36.5%;
+    background-image: url(./images/leftbackground.png);
+    background-size: 65% 100%;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.container-left .cards {
+    display: flex;
+    width: 541px;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 37px;
+}
+
+.cards .card-up {
+    width: 80%;
+    background-image: url(./images/bg-card-front.png);
+    background-repeat: no-repeat;
+    height: 245px;
+    border-radius: 15px;
+    align-self: start;
+    display: flex;
+    flex-direction: column;
+    gap: 73px;
+    transition: 0.2s ease;
+}
+
+.cards .card-up:hover {
+    transform: scale(1.2);
+}
+
+.card-up .card-logo {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin: 28px 0 0 30px;
+}
+
+.card-up .holder-info {
+    display: flex;
+    flex-direction: column;
+    font-family: "Space Grotesk", sans-serif;
+    gap: 5px;
+    align-items: center;
+}
+
+.card-up .holder-info .bottomside-info {
+    display: flex;
+    width: 85%;
+    justify-content: space-between;
+}
+
+.bottomside-info input[type="text"] {
+    text-transform: uppercase;
+    color: #fff;
+    letter-spacing: 2px;
+    font-size: 14px;
+    font-family: "Space Grotesk", sans-serif;
+    background: none;
+    border: none;
+}
+
+.bottomside-info #mmyy {
+    text-align: end;
+}
+
+.holder-info .upperside-info input[type="text"] {
+    background: none;
+    border: none;
+    color: var(--White);
+    font-size: 28px;
+    letter-spacing: 2.32px;
+    font-family: "Space Grotesk", sans-serif;
+}
+
+.cards .card-down {
+    background-image: url(./images/bg-card-back.png);
+    background-repeat: no-repeat;
+    width: 80%;
+    height: 245px;
+    border-radius: 10px;
+    align-self: end;
+    transition: 0.2s ease;
+    position: relative;
+}
+
+.cards .card-down:hover {
+    transform: scale(1.2);
+}
+
+.cards .card-down #cardCvc {
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 14px;
+    color: var(--White);
+    background: none;
+    position: absolute;
+    width: 32px;
+    border: none;
+    top: 111px;
+    right: 57px;
+}
+
+@media screen and (max-width: 1000px) {
+    .container {
+        flex-direction: column;
+    }
+
+    .container .container-left {
+        background-size: 100% 60%;
+        flex-direction: row;
+    }
+}
+/* cards css end */
+
+/* form css begin */
+
+.container .container-right {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-basis: 55%;
+}
+
+.container-right form {
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+    font-family: "Space Grotesk", sans-serif;
+    gap: 26px;
+}
+
+form label {
+    display: flex;
+    flex-direction: column;
+    letter-spacing: 2px;
+    font-size: 12px;
+    text-transform: uppercase;
+    gap: 5px;
+    position: relative;
+}
+
+label input {
+    border-radius: 8px;
+    padding: 11px 16px;
+    outline: none;
+    border: 1px solid #dfdee0;
+    height: 45px;
+    font-size: 18px;
+}
+
+label input::placeholder {
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 18px;
+    opacity: 0.25;
+}
+
+form .last-input {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.last-input .expiration {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 12px;
+}
+
+.expiration label {
+    display: flex;
+    flex-direction: row;
+}
+
+.expiration label input {
+    width: 80px;
+}
+
+.cvc label {
+    width: 190px;
+}
+
+form #confirm {
+    width: 100%;
+    height: 53px;
+    text-align: center;
+    background: var(--Verdarviolet);
+    color: #fff;
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 18px;
+    border-radius: 8px;
+    transition: 0.3s ease-in;
+}
+
+form #confirm:hover {
+    opacity: 0.5;
+}
+
+form .wrong {
+    transition: 0.3s ease;
+}
+
+form .wrong::after {
+    content: "Wrong format, numbers only";
+    position: absolute;
+    top: 70px;
+    left: 3px;
+    color: red;
+    font-size: 9px;
+}
+
+.last-input .cvc {
+    position: relative;
+}
+
+.last-input .cvc .wrongcvc::after {
+    content: "Wrong format...";
+    position: absolute;
+    top: 70px;
+    left: 3px;
+    font-size: 9px;
+    font-family: "Space Grotesk", sans-serif;
+    color: var(--Red);
+}
