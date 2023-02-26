@@ -28,14 +28,15 @@ number.addEventListener('keyup', (e) => {
         return prev + next;
     }, "");
 
-    number.value = formatNumber(number.value.replaceAll(" ", ""))
+    number.value = formatNumber(number.value.replaceAll(" ", ""));
     cardNumber.value = number.value;
+
+
     const validatedNumber = formatNumber(number.value.replaceAll(" ", "")).replaceAll(" ", "");
     if (regex.test(validatedNumber)) {
         number.style.borderColor = "green";
         number.parentElement.classList.remove('wrong');
     } else {
-        cardNumber.value = '';
         number.style.borderColor = "red";
         number.parentElement.classList.add('wrong');
     }
